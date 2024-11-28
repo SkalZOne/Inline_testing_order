@@ -3,4 +3,51 @@ html {
   margin: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form__input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input-container input {
+  outline: none;
+  padding: 5px 5px;
+  border: 2px solid #3a0064;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.form__input-container input:focus {
+  border: 2px solid #3a0064;
+}
+
+.form__input-container__alert {
+  color: red;
+}
+
+.form button {
+  max-height: 29px;
+  padding: 5px 30px;
+  transition: 0.1s;
+  cursor: pointer;
+  border: 2px solid #3a0064;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.form button:hover {
+  border: 2px solid #3a0064;
+  background-color: #3a0064;
+  color: white;
+  border-radius: 5px;
 }

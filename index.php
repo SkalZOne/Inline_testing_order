@@ -10,7 +10,12 @@
 </head>
 
 <body>
-    123
+    <form class="form" method="POST" action="index.php">
+        <div class="form__input-container">
+            <input type="text" placeholder="Введите текст для поиска по комментариям" name="searchField">
+        </div>
+        <button>Найти</button>
+    </form>
 </body>
 
 </html>
