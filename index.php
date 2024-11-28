@@ -47,6 +47,11 @@ isset($_POST['searchField']) && $searchField = $_POST['searchField'];
                 $queryPost = $db->prepare("SELECT * FROM `posts` WHERE `id` = {$comments['post_id']}");
                 $post = $queryPost->execute()->fetchArray();
 
+                // Добавил дополнительную проверку, если данная запись уже выводилась, тогда текущий вывод будет пропущен
+                if (in_array($post['title'], $_SESSION['avaliable_posts']))
+                    continue;
+                array_push($_SESSION['avaliable_posts'], $post['title']);
+
                 echo
                     "<div>
                         <span class='title__header'>Заголовок записи</span>
