@@ -25,6 +25,15 @@ isset($_POST['searchField']) && $searchField = $_POST['searchField'];
         </div>
         <button>Найти</button>
     </form>
+
+    <div class="posts">
+                    "<div>
+                        <span class='title__header'>Заголовок записи</span>
+                        <span class='title'>{$post['title']}</span>
+                        <span class='body__header'>Найден по данному комментарию</span>
+                        <span class='body'>{$comments['body']}</span>
+                    </div>";
+    </div>
 </body>
 
 </html>
