@@ -1,5 +1,6 @@
 <?php
-include_once __DIR__ . "\constants.php";
+
+include_once __DIR__ . '/../globals/constants.php';
 
 // Подключение к файлу базы данных
 $db = new SQLite3(DB_PATH);

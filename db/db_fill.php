@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . "\constants.php";
-include_once __DIR__ . '\helpers.php';
+include_once __DIR__ . '/../globals/constants.php';
+include_once __DIR__ . '/../globals/helpers.php';
 
 $db = new SQLite3(DB_PATH);
 
