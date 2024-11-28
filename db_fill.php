@@ -1,12 +1,6 @@
 <?php
 include_once __DIR__ . "\constants.php";
-
-// Функция для получения json обьекта из URL ссылки
-function getJsonFromURL($url)
-{
-    $json = file_get_contents($url);
-    return json_decode($json);
-}
+include_once __DIR__ . '\helpers.php';
 
 $db = new SQLite3(DB_PATH);
 
