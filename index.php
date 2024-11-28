@@ -1,4 +1,9 @@
 <?php
+include_once __DIR__ . "/constants.php";
+include_once __DIR__ . "/helpers.php";
+
+$db = new SQLite3(DB_PATH);
+
 isset($_POST['searchField']) && $searchField = $_POST['searchField'];
 ?>
 
@@ -27,12 +32,31 @@ isset($_POST['searchField']) && $searchField = $_POST['searchField'];
     </form>
 
     <div class="posts">
+        <?php
+        // Если $searchField найдена и если она больше или равна 3-ем символам
+        if (isset($searchField) && strlen($searchField) >= 3) {
+            // Комментарии
+            $queryComments = $db->prepare("SELECT * FROM `comments` WHERE `body` LIKE '%$searchField%'");
+            $resultComments = $queryComments->execute();
+
+            // Создание пустого массива для дополнительной проверки
+            $_SESSION['avaliable_posts'] = [];
+
+            while ($comments = $resultComments->fetchArray()) {
+                // Записи
+                $queryPost = $db->prepare("SELECT * FROM `posts` WHERE `id` = {$comments['post_id']}");
+                $post = $queryPost->execute()->fetchArray();
+
+                echo
                     "<div>
                         <span class='title__header'>Заголовок записи</span>
                         <span class='title'>{$post['title']}</span>
                         <span class='body__header'>Найден по данному комментарию</span>
                         <span class='body'>{$comments['body']}</span>
                     </div>";
+            }
+        }
+        ?>
     </div>
 </body>
 
